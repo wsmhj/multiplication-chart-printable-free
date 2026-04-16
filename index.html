@@ -3,57 +3,376 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Multiplication Chart Printable</title>
+  <title>Multiplication Chart Printable – Free Times Table Chart 1–20</title>
+  <meta name="description" content="Print a free multiplication chart from 1 to 12 or 1 to 20. Color-coded, customizable, and print-ready. Perfect for kids, students, and teachers." />
   <link rel="canonical" href="https://multiplicationchartprintable.app/" />
   <style>
-    body { font-family: Arial, sans-serif; max-width: 750px; margin: 40px auto; padding: 0 20px; text-align: center; }
-    h1 { color: #2c3e50; }
-    table { border-collapse: collapse; margin: 20px auto; font-size: 13px; }
-    td, th { width: 36px; height: 32px; border: 1px solid #ccc; text-align: center; }
-    th { background: #2980b9; color: #fff; font-weight: bold; }
-    td.highlight { background: #ecf0f1; }
-    button { margin: 8px; padding: 10px 20px; background: #2980b9; color: #fff; border: none; cursor: pointer; border-radius: 4px; font-size: 15px; }
-    button:hover { background: #1a6ea8; }
-    .cta { display: inline-block; margin-top: 24px; padding: 12px 28px; background: #27ae60; color: #fff; text-decoration: none; border-radius: 4px; font-size: 16px; font-weight: bold; }
-    .cta:hover { background: #1e8449; }
-    footer { margin-top: 40px; font-size: 0.9em; color: #555; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a202c; background: #f7fafc; line-height: 1.6; }
+    a { color: #b7791f; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav { background: #744210; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-brand { color: #fff; font-size: 1.2rem; font-weight: 700; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: #fefcbf; font-size: 0.9rem; }
+    .nav-links a:hover { color: #fff; text-decoration: none; }
+    .hero { background: linear-gradient(135deg, #744210 0%, #d69e2e 100%); color: #fff; padding: 64px 24px; text-align: center; }
+    .hero h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 32px; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 4px 16px; font-size: 0.85rem; margin-bottom: 20px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 640px) { .hero h1 { font-size: 1.7rem; } .nav-links { display: none; } .features-grid { grid-template-columns: 1fr !important; } .steps-grid { grid-template-columns: repeat(2,1fr) !important; } .info-grid { grid-template-columns: 1fr !important; } .footer-grid { grid-template-columns: 1fr !important; } }
+    .tool-section { background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin: -40px auto 48px; max-width: 1000px; overflow: hidden; }
+    .tool-header { background: #744210; color: #fff; padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .tool-header h2 { font-size: 1.1rem; font-weight: 700; }
+    .ctrl-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .ctrl-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #fefcbf; }
+    .ctrl-item select { padding: 5px 10px; border-radius: 6px; border: none; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+    .ctrl-item input[type=color] { width: 32px; height: 32px; border: none; border-radius: 4px; cursor: pointer; padding: 1px; }
+    .btn { padding: 7px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 700; }
+    .btn-light { background: rgba(255,255,255,0.9); color: #744210; }
+    .btn-gold { background: #d69e2e; color: #fff; }
+    .tool-body { padding: 24px; overflow-x: auto; }
+    .chart-wrap { display: flex; flex-direction: column; align-items: center; }
+    table.mult { border-collapse: collapse; font-size: 0.85rem; margin: 0 auto; }
+    table.mult th, table.mult td { width: 40px; height: 36px; text-align: center; border: 1px solid #e2e8f0; }
+    table.mult .header-cell { background: #744210; color: #fff; font-weight: 800; font-size: 0.9rem; }
+    table.mult .row-header { background: #744210; color: #fff; font-weight: 800; }
+    table.mult .product { font-weight: 600; }
+    table.mult .highlight { font-weight: 700; }
+    .chart-label { font-size: 0.85rem; color: #718096; margin-top: 10px; }
+    .cta-box { margin-top: 20px; padding: 14px; background: #744210; border-radius: 10px; text-align: center; }
+    .cta-box a { color: #fff; font-weight: 700; font-size: 0.9rem; }
+    .cta-box p { color: #fefcbf; font-size: 0.75rem; margin-top: 4px; }
+    .section { padding: 64px 0; }
+    .section-title { text-align: center; margin-bottom: 48px; }
+    .section-title h2 { font-size: 1.8rem; font-weight: 800; color: #1a202c; margin-bottom: 12px; }
+    .section-title p { color: #718096; max-width: 540px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .feature-card { background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .feature-icon { font-size: 2rem; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: #2d3748; }
+    .feature-card p { color: #718096; font-size: 0.9rem; }
+    .how-bg { background: #fff; padding: 64px 0; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .step { text-align: center; padding: 24px 16px; }
+    .step-num { width: 48px; height: 48px; background: #d69e2e; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; margin: 0 auto 16px; }
+    .step h3 { font-size: 0.95rem; font-weight: 700; color: #2d3748; margin-bottom: 8px; }
+    .step p { font-size: 0.85rem; color: #718096; }
+    .info-section { padding: 64px 0; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .info-text h2 { font-size: 1.5rem; font-weight: 800; color: #1a202c; margin-bottom: 16px; }
+    .info-text p { color: #4a5568; margin-bottom: 16px; font-size: 0.95rem; }
+    .info-text h3 { font-size: 1rem; font-weight: 700; color: #2d3748; margin: 20px 0 8px; }
+    .tips-list { list-style: none; }
+    .tips-list li { padding: 10px 0; border-bottom: 1px solid #e2e8f0; display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; color: #4a5568; }
+    .tips-list li::before { content: "★"; color: #d69e2e; font-weight: 700; flex-shrink: 0; }
+    .times-table-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .tt-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; text-align: center; }
+    .tt-card h4 { font-size: 0.85rem; font-weight: 700; color: #744210; margin-bottom: 4px; }
+    .tt-card p { font-size: 0.75rem; color: #718096; line-height: 1.5; }
+    .faq-bg { background: #fff; padding: 64px 0; }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid #e2e8f0; }
+    .faq-q { padding: 20px 0; font-weight: 700; color: #2d3748; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; }
+    .faq-q:hover { color: #d69e2e; }
+    .faq-a { padding: 0 0 20px; color: #4a5568; font-size: 0.9rem; line-height: 1.7; display: none; }
+    .faq-a.open { display: block; }
+    .faq-arrow { transition: transform 0.2s; }
+    .faq-arrow.open { transform: rotate(180deg); }
+    .cta-banner { background: linear-gradient(135deg, #744210, #d69e2e); color: #fff; padding: 64px 24px; text-align: center; border-radius: 16px; margin: 48px 0; }
+    .cta-banner h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+    .cta-banner p { opacity: 0.85; margin-bottom: 28px; }
+    .cta-banner a { display: inline-block; background: #fff; color: #744210; padding: 14px 36px; border-radius: 8px; font-weight: 800; font-size: 1rem; }
+    footer { background: #1a202c; color: #a0aec0; padding: 48px 24px 24px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto 40px; }
+    .footer-brand { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .footer-desc { font-size: 0.85rem; line-height: 1.7; }
+    .footer-col h4 { color: #fff; font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { color: #a0aec0; font-size: 0.85rem; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom { text-align: center; border-top: 1px solid #2d3748; padding-top: 24px; font-size: 0.8rem; max-width: 1100px; margin: 0 auto; }
+    @media print { nav, .tool-header, .cta-box, .section, .how-bg, .info-section, .faq-bg, .cta-banner, footer { display: none !important; } .tool-section { box-shadow: none; margin: 0; } table.mult th, table.mult td { width: 36px; height: 32px; } }
   </style>
 </head>
 <body>
+
+<nav>
+  <div class="nav-brand">&#10006; Multiplication Chart Printable</div>
+  <div class="nav-links">
+    <a href="#chart">Chart</a>
+    <a href="#how-it-works">How to Use</a>
+    <a href="#tips">Learning Tips</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://multiplicationchartprintable.app/" style="background:#d69e2e;color:#fff;padding:6px 14px;border-radius:6px;font-weight:700;">Full Version</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">&#10003; Free &nbsp;&bull;&nbsp; 1–12 or 1–20 Tables &nbsp;&bull;&nbsp; Color-Coded &nbsp;&bull;&nbsp; Print-Ready</div>
   <h1>Multiplication Chart Printable</h1>
-  <p>Free printable multiplication chart from 1 to 12.</p>
+  <p>Print a beautiful, color-coded multiplication table instantly. Choose your range, highlight key tables, and print — no sign-up, no download needed.</p>
+</div>
 
-  <button onclick="window.print()">Print Chart</button>
+<div class="container" id="chart">
+  <div class="tool-section">
+    <div class="tool-header">
+      <h2>&#10006; Multiplication Chart Generator</h2>
+      <div class="ctrl-row">
+        <div class="ctrl-item">
+          Size:
+          <select id="chartSize" onchange="buildChart()">
+            <option value="10">1 × 10</option>
+            <option value="12" selected>1 × 12</option>
+            <option value="15">1 × 15</option>
+            <option value="20">1 × 20</option>
+          </select>
+        </div>
+        <div class="ctrl-item">
+          Highlight:
+          <select id="highlight" onchange="buildChart()">
+            <option value="none">None</option>
+            <option value="even">Even Products</option>
+            <option value="5s">5s Table</option>
+            <option value="squares">Perfect Squares</option>
+          </select>
+        </div>
+        <div class="ctrl-item">
+          Color:
+          <input type="color" id="headerColor" value="#744210" onchange="buildChart()" />
+        </div>
+        <button class="btn btn-light" onclick="window.print()">&#128424; Print</button>
+        <button class="btn btn-gold" onclick="buildChart()">&#8635; Update</button>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div class="chart-wrap">
+        <table class="mult" id="multTable"></table>
+        <p class="chart-label" id="chartLabel">Multiplication Chart 1–12</p>
+        <div class="cta-box" style="width:100%;max-width:700px;">
+          <a href="https://multiplicationchartprintable.app/">Multiplication Chart Printable — Full Version</a>
+          <p>Blank charts, division charts, individual times table sheets, and classroom packs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <table id="chart"></table>
+<div class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Use a Printed Multiplication Chart?</h2>
+      <p>A physical multiplication table is one of the most powerful learning tools in elementary education.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128218;</div>
+        <h3>Visual Learning</h3>
+        <p>Color-coded charts help children see patterns in multiplication — like how all multiples of 5 end in 0 or 5, making them easier to memorize.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128736;</div>
+        <h3>Classroom Ready</h3>
+        <p>Print a class set instantly. Our charts are formatted for clean, crisp printing on standard Letter and A4 paper with no wasted margins.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#127968;</div>
+        <h3>Homework Helper</h3>
+        <p>Post a chart on the refrigerator or homework desk. Easy visual reference speeds up math homework and builds confidence.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9889;</div>
+        <h3>Pattern Recognition</h3>
+        <p>Looking at the full chart helps students discover multiplication patterns — like the symmetry along the diagonal where a×b = b×a.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#127775;</div>
+        <h3>Multiple Range Options</h3>
+        <p>Generate charts from 1×10 up to 1×20 to match curriculum requirements across different grade levels and countries.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128273;</div>
+        <h3>100% Free to Print</h3>
+        <p>No watermarks, no subscriptions, no limits. Print as many copies as you need for home, school, or tutoring sessions.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <br />
-  <a class="cta" href="https://multiplicationchartprintable.app/">Multiplication Chart Printable</a>
+<div class="how-bg" id="how-it-works">
+  <div class="container">
+    <div class="section-title">
+      <h2>How to Use the Multiplication Chart Generator</h2>
+      <p>Customize and print your perfect multiplication table in three easy steps.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Choose Chart Size</h3>
+        <p>Select from 1×10, 1×12, 1×15, or 1×20 to match your grade level or curriculum requirements.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Set Highlighting</h3>
+        <p>Highlight even products, the 5s table, or perfect squares to make key patterns visually obvious for learners.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Pick a Color</h3>
+        <p>Choose any header color to match your classroom theme, student notebook, or school branding.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Print Instantly</h3>
+        <p>Click Print and your browser opens a clean print dialog. Select your printer and paper size — done!</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <footer>
-    <p>For more chart options, visit <a href="https://multiplicationchartprintable.app/">Multiplication Chart Printable</a>.</p>
-  </footer>
+<div class="info-section">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-text">
+        <h2>How to Memorize Multiplication Tables Faster</h2>
+        <p>Memorizing times tables is a foundational math skill that accelerates learning in arithmetic, algebra, and beyond. These proven strategies make the process faster and more enjoyable.</p>
+        <ul class="tips-list" id="tips">
+          <li>Start with the easiest tables: ×1, ×2, ×5, and ×10 — these follow obvious patterns</li>
+          <li>Use the commutative property: if you know 3×7, you know 7×3 — this halves the work</li>
+          <li>Learn ×9 tricks: digits of each product always sum to 9 (e.g., 9×8=72, 7+2=9)</li>
+          <li>Practice in both directions: recite 4×7=28 and also 28÷4=7 simultaneously</li>
+          <li>Use skip counting to learn table patterns before memorizing facts individually</li>
+          <li>Drill with flashcards — 5 minutes of daily practice beats 1 hour weekly</li>
+          <li>Post the chart somewhere visible and quiz family members to reinforce learning</li>
+          <li>Focus on the "hard" facts last: ×6, ×7, and ×8 need the most practice</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-size:1.3rem;font-weight:800;color:#1a202c;margin-bottom:20px;">Individual Times Tables</h2>
+        <div class="times-table-grid">
+          <div class="tt-card"><h4>×2 Table</h4><p>2,4,6,8,10,12,14,16,18,20</p></div>
+          <div class="tt-card"><h4>×3 Table</h4><p>3,6,9,12,15,18,21,24,27,30</p></div>
+          <div class="tt-card"><h4>×4 Table</h4><p>4,8,12,16,20,24,28,32,36,40</p></div>
+          <div class="tt-card"><h4>×5 Table</h4><p>5,10,15,20,25,30,35,40,45,50</p></div>
+          <div class="tt-card"><h4>×6 Table</h4><p>6,12,18,24,30,36,42,48,54,60</p></div>
+          <div class="tt-card"><h4>×7 Table</h4><p>7,14,21,28,35,42,49,56,63,70</p></div>
+          <div class="tt-card"><h4>×8 Table</h4><p>8,16,24,32,40,48,56,64,72,80</p></div>
+          <div class="tt-card"><h4>×9 Table</h4><p>9,18,27,36,45,54,63,72,81,90</p></div>
+          <div class="tt-card"><h4>×10 Table</h4><p>10,20,30,40,50,60,70,80,90,100</p></div>
+          <div class="tt-card"><h4>×11 Table</h4><p>11,22,33,44,55,66,77,88,99,110</p></div>
+          <div class="tt-card"><h4>×12 Table</h4><p>12,24,36,48,60,72,84,96,108,120</p></div>
+          <div class="tt-card"><h4>×15 Table</h4><p>15,30,45,60,75,90,105,120,135,150</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <script>
-    (function() {
-      const table = document.getElementById('chart');
-      const size = 12;
-      // Header row
-      let headerRow = '<tr><th>&times;</th>';
-      for (let i = 1; i <= size; i++) headerRow += '<th>' + i + '</th>';
-      headerRow += '</tr>';
-      table.innerHTML = headerRow;
-      // Data rows
-      for (let r = 1; r <= size; r++) {
-        let row = '<tr><th>' + r + '</th>';
-        for (let c = 1; c <= size; c++) {
-          const cls = (r % 2 === 0) ? ' class="highlight"' : '';
-          row += '<td' + cls + '>' + (r * c) + '</td>';
-        }
-        row += '</tr>';
-        table.innerHTML += row;
+<div class="faq-bg" id="faq">
+  <div class="container">
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+      <p>Common questions about multiplication charts and learning times tables.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What age should children learn their times tables? <span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">Most curricula introduce multiplication in 2nd or 3rd grade (ages 7–9), starting with the ×2, ×5, and ×10 tables. By 4th grade (ages 9–10), students are typically expected to know all multiplication facts up to 12×12 from memory. Early exposure to a multiplication chart can start even younger to build familiarity with the patterns.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the difference between 1×12 and 1×20 charts? <span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">A 1×12 chart shows products for multipliers 1 through 12 and is the US standard for elementary education. A 1×20 chart extends to multiplier 20 and is used in some countries and for more advanced students. The 12-table chart is most common because 12 is relevant in everyday life (months, inches per foot, eggs per dozen).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How do I use the chart to find a product? <span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">To find the product of two numbers, find the first number in the top header row and the second number in the left header column (or vice versa — the result is the same either way). Trace your finger or eye across the row and down the column — the cell where they intersect is the answer. For example, to find 6×8, find 6 across the top and 8 down the side. The intersection shows 48.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Why is the chart symmetric along the diagonal? <span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">The symmetry reflects the commutative property of multiplication: a × b = b × a. This means 4×7 = 7×4 = 28. The diagonal (top-left to bottom-right) shows the perfect squares (1, 4, 9, 16, 25...) where both factors are the same. This symmetry means you only need to memorize roughly half the table — the cells above the diagonal are a mirror of those below it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I print a blank multiplication chart for practice? <span class="faq-arrow">&#9660;</span></div>
+        <div class="faq-a">The full version at multiplicationchartprintable.app offers both filled and blank multiplication charts. Blank charts are excellent for practice — students fill in the products themselves to reinforce memorization. You can print partially filled charts with some cells blank as a worksheet, or fully blank for timed tests.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="cta-banner">
+    <h2>Need More Multiplication Resources?</h2>
+    <p>The full version includes blank charts, division tables, individual times table worksheets, and printable classroom packs.</p>
+    <a href="https://multiplicationchartprintable.app/">Multiplication Chart Printable</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">&#10006; Multiplication Chart Printable</div>
+      <p class="footer-desc">Free printable multiplication charts for students, teachers, and parents. Customize the size and color, then print instantly. Perfect for classroom and home use.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Charts</h4>
+      <ul>
+        <li><a href="#chart">1×12 Chart</a></li>
+        <li><a href="#chart">1×20 Chart</a></li>
+        <li><a href="#how-it-works">How to Use</a></li>
+        <li><a href="https://multiplicationchartprintable.app/">Full Version</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#tips">Learning Tips</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://multiplicationchartprintable.app/">Blank Charts</a></li>
+        <li><a href="https://multiplicationchartprintable.app/">Division Tables</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Multiplication Chart Printable. Free times table charts for students, teachers, and parents.</p>
+  </div>
+</footer>
+
+<script>
+  function buildChart() {
+    const size = parseInt(document.getElementById('chartSize').value) || 12;
+    const hl = document.getElementById('highlight').value;
+    const hColor = document.getElementById('headerColor').value;
+    const table = document.getElementById('multTable');
+    table.innerHTML = '';
+    // Header row
+    let headerRow = '<tr><th class="header-cell" style="background:' + hColor + '">&#10006;</th>';
+    for (let c = 1; c <= size; c++) headerRow += '<th class="header-cell" style="background:' + hColor + '">' + c + '</th>';
+    headerRow += '</tr>';
+    table.innerHTML = headerRow;
+    // Data rows
+    for (let r = 1; r <= size; r++) {
+      let row = '<tr><th class="row-header" style="background:' + hColor + '">' + r + '</th>';
+      for (let c = 1; c <= size; c++) {
+        const p = r * c;
+        let bg = '';
+        if (hl === 'even' && p % 2 === 0) bg = 'background:#fefcbf;';
+        else if (hl === '5s' && (r === 5 || c === 5)) bg = 'background:#fefcbf;';
+        else if (hl === 'squares' && r === c) bg = 'background:#fefcbf;font-weight:800;';
+        row += '<td class="product" style="' + bg + '">' + p + '</td>';
       }
-    })();
-  </script>
+      row += '</tr>';
+      table.innerHTML += row;
+    }
+    const sizeLabels = {10:'1–10',12:'1–12',15:'1–15',20:'1–20'};
+    document.getElementById('chartLabel').textContent = 'Multiplication Chart ' + (sizeLabels[size] || '1–' + size);
+  }
+  function toggleFaq(el) {
+    el.nextElementSibling.classList.toggle('open');
+    el.querySelector('.faq-arrow').classList.toggle('open');
+  }
+  buildChart();
+</script>
 </body>
 </html>
